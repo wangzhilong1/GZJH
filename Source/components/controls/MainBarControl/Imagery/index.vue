@@ -172,22 +172,22 @@ export default {
   props:["labServiceUI","cloudServiceUI"],
   data() {
     return {
-      showTip: "never",
-      selectlist: false,
+      showTip: "never",//显示提示
+      selectlist: false,//选择列表
       lang: {},
-      imageryLab: false,
-      imageryCloud: false,      
-      imageryOnline: false,
-      imageryWMTS:false,
-      alpha: 1,
-      brightness: 1,
-      contrast: 1,
-      hue: 0,
-      saturation: 1,
-      gamma: 1,
-      layerTitle: "",
-      layerID: undefined,
-      splitDirection: "ImagerySplitDirection.NONE",
+      imageryLab: false,//影像实验室
+      imageryCloud: false, //图像云
+      imageryOnline: false,//图像在线
+      imageryWMTS:false,//wmts图像
+      alpha: 1,//透明度
+      brightness: 1,//亮度
+      contrast: 1,//对比
+      hue: 0,//色调
+      saturation: 1,//饱和度
+      gamma: 1,//坡度
+      layerTitle: "",//图层标题
+      layerID: undefined,//图层ID
+      splitDirection: "ImagerySplitDirection.NONE",//图层分向
       langs:languagejs
     };
   },
