@@ -18,13 +18,13 @@
           ></div>
           <span class="xbsj-item-name">{{lang.online}}</span>
         </div>
-        <div class="xbsj-item-btnbox" v-show="labServiceUI">
+        <div class="xbsj-item-btnbox" v-show="labServiceUI" style="display: none">
           <div
             class="xbsj-item-btn localhostbutton"
             @click="modelLab=!modelLab"
             :class="{highlight:modelLab}"
           ></div>
-          <span class="xbsj-item-name">{{lang.localhost}}</span>
+          <span class="xbsj-item-name" style="display: none">{{lang.localhost}}</span>
         </div>
         <div class="xbsj-item-btnbox" v-show="cloudServiceUI">
           <div
@@ -236,7 +236,7 @@
           </div>
           <div class="xbsj-slide-bottom">
             <label class="xbsj-slide-label yapingzu">{{lang.yapingzu}}</label>
- 
+
             <div class="xbsj-tileset-selectdiv" @click="selectClick">
               <span class="xbsj-tileset-selectText">{{getFlatingName(xbsjFlattenGuid)}}</span>
               <button class="xbsj-tileset-selectButton"></button>
@@ -581,13 +581,13 @@ export default {
 
 <style scoped>
 .onlinebutton {
-  background: url(../../../../images/online.png) no-repeat;
+  background: url(../../../../images/ljzk.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .onlinebutton.highlight,
 .onlinebutton:hover {
-  background: url(../../../../images/online_on.png) no-repeat;
+  background: url(../../../../images/ljzk2.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }

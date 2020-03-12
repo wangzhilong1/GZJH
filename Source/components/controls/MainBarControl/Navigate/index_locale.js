@@ -1,4 +1,6 @@
 const zh = {
+  EWproject:"新建项目",
+  reset:"清除",
   view: "视角",
   global: "全球",
   china: "中国",
@@ -16,11 +18,16 @@ const zh = {
   default: "默认",
   gooleearth: "右键旋转",
   firstperson: "第一人称",
-  mouseshiqu: "鼠标拾取",
+  mouseshiqu: "项目概况",
   scene: "场景",
   save: "保存",
   path: "路径动画",
-  cameraattach: "绑定相机"
+  cameraattach: "绑定相机",
+  distance: "距离",
+  height: "高度",
+  area: "面积",
+  volume: "体积",
+  // reset: "清除"
 };
 
 const en = {

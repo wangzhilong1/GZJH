@@ -8,11 +8,20 @@
       @mousemove="onMoving($event)"
       @mouseup="endMove($event)"
     >
+
       <div class="xbsj-list-item" v-show="labServiceUI">
-        <span class="xbsj-list-name">{{lang.scene}}</span>
+        <div class="xbsj-item-btnbox">
+          <div class="xbsj-item-btn globalbutton" @click="flyToGlobe"></div>
+          <span class="xbsj-item-name">{{lang.EWproject}}</span>
+        </div>
         <div class="xbsj-item-btnbox">
           <div class="xbsj-item-btn savebutton" @click="saveScene"></div>
           <span class="xbsj-item-name">{{lang.save}}</span>
+        </div>
+
+        <div class="xbsj-item-btnbox" @click="picking = !picking">
+          <div class="xbsj-item-btn mousebutton" :class="{ mousebuttonActive: picking }"></div>
+          <span class="xbsj-item-name">{{lang.mouseshiqu}}</span>
         </div>
         <span
           class="xbsj-select"
@@ -20,11 +29,11 @@
           @click.stop="togglePopup('sceneView',$event)"
         ></span>
       </div>
-      <div class="xbsj-list-item">
+      <div class="xbsj-list-item" style="display: none">
         <span class="xbsj-list-name">{{lang.view}}</span>
         <div class="xbsj-item-btnbox">
           <div class="xbsj-item-btn globalbutton" @click="flyToGlobe"></div>
-          <span class="xbsj-item-name">{{lang.global}}</span>
+          <span class="xbsj-item-name" style="display: none">{{lang.global}}</span>
         </div>
         <span
           class="xbsj-select"
@@ -52,7 +61,7 @@
           @click.stop="toggleCameraViewManager()"
         ></span>
       </div>
-      <div class="xbsj-list-item">
+      <div class="xbsj-list-item" style="display: none">
         <span class="xbsj-list-name">{{lang.location}}</span>
         <input type="text" class="xbsj-search-box" @keyup.enter="search" v-model="key" />
         <div class="xbsj-search"></div>
@@ -76,7 +85,7 @@
           <span class="xbsj-item-name">{{lang.location}}</span>
         </div>
       </div>-->
-      <div class="xbsj-list-item">
+      <div class="xbsj-list-item" style="display: none">
         <span class="xbsj-list-name">{{lang.autofly}}</span>
         <div class="xbsj-item-btnbox">
           <div
@@ -99,6 +108,7 @@
           ></div>
           <span class="xbsj-item-name">{{lang.centerrotation}}</span>
         </div>
+
         <span
           class="xbsj-select"
           :class="{highlight:popup == 'rotateCenter'}"
@@ -142,7 +152,7 @@
         ></span>
         -->
       </div>
-      <div class="xbsj-list-item xbsj-list-lastitem">
+      <div class="xbsj-list-item xbsj-list-lastitem" style="display: none">
         <span class="xbsj-list-name">{{lang.interactivemode}}</span>
         <div class="xbsj-item-btnbox" @click="useCesiumNavigator = true">
           <div
@@ -170,10 +180,10 @@
           :class="{highlight:popup == 'firstPerson'}"
           @click.stop="togglePopup('firstPerson',$event)"
         ></span>
-        <div class="xbsj-item-btnbox" @click="picking = !picking">
-          <div class="xbsj-item-btn mousebutton" :class="{ mousebuttonActive: picking }"></div>
-          <span class="xbsj-item-name">{{lang.mouseshiqu}}</span>
-        </div>
+<!--        <div class="xbsj-item-btnbox" @click="picking = !picking">-->
+<!--          <div class="xbsj-item-btn mousebutton" :class="{ mousebuttonActive: picking }"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.mouseshiqu}}</span>-->
+<!--        </div>-->
         <span
           class="xbsj-select"
           :class="{highlight:popup == 'pickObject'}"
@@ -533,12 +543,12 @@ export default {
   left: 42px;
 }
 .globalbutton {
-  background: url(../../../../images/global.png) no-repeat;
+  background: url(../../../../images/xm.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .globalbutton:hover {
-  background: url(../../../../images/global_on.png) no-repeat;
+  background: url(../../../../images/xm1.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }

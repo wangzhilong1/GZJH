@@ -13,24 +13,24 @@
         @click="switchPage('imagery')"
         :class="{'xbsj-title-item-on':page=='imagery'}"
       >{{lang.images}}</li>
-      <li
+      <li style="display:none"
         @click="switchPage('model')"
         :class="{'xbsj-title-item-on':page=='model'}"
       >{{lang.model}}</li>
-      <li
+      <li style="display:none"
         @click="switchPage('terrain')"
         :class="{'xbsj-title-item-on':page=='terrain'}"
       >{{lang.terrain}}</li>
-      <li
+      <li style="display:none"
         @click="switchPage('analysis')"
         :class="{'xbsj-title-item-on':page=='analysis'}"
       >{{lang.analysis}}</li>
-      <li
+      <li style="display:none"
         @click="switchPage('effect')"
         :class="{'xbsj-title-item-on':page=='effect'}"
       >{{lang.effect}}</li>
       
-      <li
+      <li style="display:none"
         @click="switchPage('entity')"
         :class="{'xbsj-title-item-on':page=='entity'}"
       >{{lang.plotting}}</li>

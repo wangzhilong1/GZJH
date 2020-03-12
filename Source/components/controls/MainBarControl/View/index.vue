@@ -9,137 +9,85 @@
       @mouseup="endMove($event)"
     >
       <div class="xbsj-list-item">
-        <span class="xbsj-list-name">{{lang.control}}</span>
-        <div class="xbsj-item-btnbox ml20" @click="layerShow=!layerShow">
-          <div class="xbsj-item-btn layerbutton" :class="layerShow ? 'layerbuttonActive' : ''"></div>
-          <span class="xbsj-item-name">{{lang.layer}}</span>
-        </div>
-        <div class="xbsj-item-btnbox" @click="navcontrolShow=!navcontrolShow">
-          <div class="xbsj-item-btn navbutton" :class="navcontrolShow ? 'navbuttonActive' : ''"></div>
-          <span class="xbsj-item-name">{{lang.navcontrol}}</span>
-        </div>
-        <div class="xbsj-item-btnbox" @click="scalecontrolShow=!scalecontrolShow">
+        <span class="xbsj-list-name">{{lang.measure}}</span>
+<!--        1.实现点位功能-->
+        <div class="xbsj-item-btnbox ml20" @click="measurementType='POINT'">
           <div
-            class="xbsj-item-btn scalebutton"
-            :class="scalecontrolShow ? 'scalebuttonActive' : ''"
+                  class="xbsj-item-btn pointbutton"
+                  :class="measurementType === 'POINT' ? 'pointbuttonActive' : ''"
           ></div>
-          <span class="xbsj-item-name">{{lang.scalecontrol}}</span>
+          <span class="xbsj-item-name">{{lang.point}}</span>
         </div>
-        <div class="xbsj-item-btnbox" @click="statecontrolShow=!statecontrolShow">
+<!--        2.实现测距功能-->
+        <div class="xbsj-item-btnbox" @click="measurementType='SPACE_DISTANCE'">
           <div
-            class="xbsj-item-btn statebutton"
-            :class="statecontrolShow ? 'statebuttonActive' : ''"
+                  class="xbsj-item-btn distancebutton"
+                  :class="measurementType === 'SPACE_DISTANCE' ? 'distancebuttonActive' : ''"
           ></div>
-          <span class="xbsj-item-name">{{lang.statecontrol}}</span>
+          <span class="xbsj-item-name">{{lang.distance}}</span>
+        </div>
+<!--        3.实现测高功能-->
+        <div class="xbsj-item-btnbox" @click="measurementType='TRIANGLE_DISTANCE'">
+          <div
+                  class="xbsj-item-btn heightbutton"
+                  :class="measurementType === 'TRIANGLE_DISTANCE' ? 'heightbuttonActive' : ''"
+          ></div>
+          <span class="xbsj-item-name">{{lang.height}}</span>
+        </div>
+<!--        4.实现面积计算-->
+        <div class="xbsj-item-btnbox" @click="measurementType='SPACE_AREA'">
+          <div
+                  class="xbsj-item-btn areabutton"
+                  :class="measurementType === 'SPACE_AREA' ? 'areabuttonActive' : ''"
+          ></div>
+          <span class="xbsj-item-name">{{lang.area}}</span>
         </div>
 
-        <div class="xbsj-item-btnbox" @click="modelTreeShow=!modelTreeShow">
-          <div class="xbsj-item-btn scenebutton" :class="{highlight :modelTreeShow}"></div>
-          <span class="xbsj-item-name">{{lang.modelTree}}</span>
+        <!-- <div class="xbsj-item-btnbox" @click="cutFillEnabled=!cutFillEnabled"> -->
+<!--        5.实现体积计算-->
+        <div class="xbsj-item-btnbox" @click="cutFillComputingShow=!cutFillComputingShow">
+          <div class="xbsj-item-btn volumebutton" :class="{highlight:cutFillComputingShow}"></div>
+          <span class="xbsj-item-name">{{lang.volume}}</span>
+        </div>
+<!--        6.实现清除功能-->
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn resetbutton"></div>
+          <span class="xbsj-item-name">{{lang.reset}}</span>
         </div>
 
-        <div class="xbsj-item-btnbox" @click="tilesTestShow=!tilesTestShow">
-          <div class="xbsj-item-btn testbutton" :class="{highlight: tilesTestShow}"></div>
-          <span class="xbsj-item-name">{{lang.autoTest}}</span>
-        </div>
-        <!--
-        <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn attributebutton"></div>
-          <span class="xbsj-item-name">{{lang.attributepanel}}</span>
-        </div>
-        <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn timebutton"></div>
-          <span class="xbsj-item-name">{{lang.timeaxis}}</span>
-        </div>
-        -->
+        <!-- <div class="xbsj-item-btnbox" @click="showgeology">
+          <div class="xbsj-item-btn resetbutton"></div>
+          <span class="xbsj-item-name">地质</span>
+        </div>-->
       </div>
+<!--      以下为：
+        1.  大门围墙
+        2.  道路
+        3. 办公区
+        4. 生活区
+        5. 施工配置-->
+
       <div class="xbsj-list-item">
-        <span class="xbsj-list-name">{{lang.splitscreen}}</span>
-        <div
-          class="xbsj-item-btnbox ml20"
-          @click="popup=!popup"
-          v-show="splitX<=0&&splitY<=0||splitX<=0&&splitY>=1||splitX>=1&&splitY<=0||splitX>=1&&splitY>=1"
-        >
-          <div class="xbsj-item-btn singleviewportbutton singleviewportbuttonActive"></div>
-          <span class="xbsj-item-name">{{lang.singleviewport}}</span>
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn DoorWallbutton"></div>
+          <span class="xbsj-item-name">{{lang.DoorWall}}</span>
         </div>
-        <div
-          class="xbsj-item-btnbox ml20"
-          @click="popup=!popup"
-          v-show="(splitX > 0 && splitX < 1 && !(splitY > 0 && splitY < 1))"
-        >
-          <div
-            class="xbsj-item-btn leftrightbutton"
-            :class="(splitX > 0 && splitX < 1 && !(splitY > 0 && splitY < 1)) ? 'leftrightbuttonActive' : ''"
-          ></div>
-          <span class="xbsj-item-name">{{lang.leftright}}</span>
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn roodbutton"></div>
+          <span class="xbsj-item-name">{{lang.roodWall}}</span>
         </div>
-        <div
-          class="xbsj-item-btnbox"
-          @click="popup=!popup"
-          v-show="(!(splitX > 0 && splitX < 1) && splitY > 0 && splitY < 1)"
-        >
-          <div
-            class="xbsj-item-btn upanddownbutton"
-            :class="(!(splitX > 0 && splitX < 1) && splitY > 0 && splitY < 1) ? 'upanddownbuttonActive' : ''"
-          ></div>
-          <span class="xbsj-item-name">{{lang.upanddown}}</span>
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn officebutton"></div>
+          <span class="xbsj-item-name">{{lang.office}}</span>
         </div>
-        <div
-          class="xbsj-item-btnbox"
-          @click="popup=!popup"
-          v-show="(splitX > 0 && splitX < 1 && splitY > 0 && splitY < 1)"
-        >
-          <div
-            class="xbsj-item-btn fourpointsbutton"
-            :class="(splitX > 0 && splitX < 1 && splitY > 0 && splitY < 1) ? 'fourpointsbuttonActive' : ''"
-          ></div>
-          <span class="xbsj-item-name">{{lang.fourpoints}}</span>
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn roodbutton"></div>
+          <span class="xbsj-item-name">{{lang.roodWall}}</span>
         </div>
-      </div>
-      <div class="xbsj-list-item xbsj-list-lastitem">
-        <span class="xbsj-list-name">{{lang.debug}}</span>
-        <div class="xbsj-item-btnbox ml20" @click="terrainDebug=!terrainDebug">
-          <div
-            class="xbsj-item-btn terrainbutton"
-            :class="terrainDebug ? 'terrainbuttonActive' : ''"
-          ></div>
-          <span class="xbsj-item-name">{{lang.terraindebug}}</span>
+        <div class="xbsj-item-btnbox" @click="clearResults">
+          <div class="xbsj-item-btn roodbutton"></div>
+          <span class="xbsj-item-name">{{lang.roodWall}}</span>
         </div>
-        <div class="xbsj-item-btnbox" @click="cesiumDebug=!cesiumDebug">
-          <div class="xbsj-item-btn dtilesbutton" :class="cesiumDebug ? 'dtilesbuttonActive' : ''"></div>
-          <span class="xbsj-item-name">{{lang.dtilesdebug}}</span>
-        </div>
-
-        <div class="xbsj-item-btnbox" @click="capture">
-          <div class="xbsj-item-btn capturebutton"></div>
-          <span class="xbsj-item-name">{{lang.capture}}</span>
-        </div>
-
-        <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn">
-            <XbsjColorButton v-model="baseColorUI" ref="baseColor"></XbsjColorButton>
-          </div>
-          <span class="xbsj-item-name">{{lang.earthColor}}</span>
-        </div>
-      </div>
-    </div>
-    <div class="xbsj-mainbar-popup popup" v-show="popup">
-      <div class="xbsj-item-btnbox ml20" @click="viewportshow('0'),setViewport(1.0,1.0)">
-        <div class="xbsj-item-btn singleviewportbuttonActive"></div>
-        <span class="xbsj-item-name">{{lang.singleviewport}}</span>
-      </div>
-      <div class="xbsj-item-btnbox ml20" @click="viewportshow('1'),setViewport(0.5, 1.0)">
-        <div class="xbsj-item-btn leftrightbuttonActive"></div>
-        <span class="xbsj-item-name">{{lang.leftright}}</span>
-      </div>
-      <div class="xbsj-item-btnbox" @click="viewportshow('2'),setViewport(1.0, 0.5)">
-        <div class="xbsj-item-btn upanddownbuttonActive"></div>
-        <span class="xbsj-item-name">{{lang.upanddown}}</span>
-      </div>
-      <div class="xbsj-item-btnbox" @click="viewportshow('3'),setViewport(0.5, 0.5)">
-        <div class="xbsj-item-btn fourpointsbuttonActive"></div>
-        <span class="xbsj-item-name">{{lang.fourpoints}}</span>
       </div>
     </div>
   </div>
@@ -151,6 +99,7 @@ import languagejs from "./index_locale";
 export default {
   data() {
     return {
+
       layerShow: true,
       navcontrolShow: true,
       scalecontrolShow: true,
@@ -547,5 +496,31 @@ export default {
   background-size: contain;
   cursor: pointer;
 }
+  .DoorWallbutton{
+    background: url("../../../../images/door.png");
+    background-size: contain;
+    cursor: pointer;
+  }
+.DoorWallbutton.highlight,
+.DoorWallbutton:hover{
+  background: url("../../../../images/doorw.png");
+  background-size: contain;
+  cursor: pointer;
+
+}
+  .roodbutton{
+    background: url("../../../../images/roodw.png");
+    background-size: contain;
+    cursor: pointer;
+  }
+.roodbutton.highlight,
+.roodbutton:hover{
+  background: url("../../../../images/roog.png");
+  background-size: contain;
+  cursor: pointer;
+}
+  .officebutton{
+    background: url("../../../../images/");
+  }
 </style>
 

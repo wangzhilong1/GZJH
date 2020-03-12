@@ -20,7 +20,7 @@
           <span class="xbsj-item-name">{{lang.online}}</span>
         </div>
         <!-- Lab内置 -->
-        <div class="xbsj-item-btnbox" @click="LabSymbolShow=!LabSymbolShow">
+        <div class="xbsj-item-btnbox" @click="LabSymbolShow=!LabSymbolShow" style="display: none">
           <div class="xbsj-item-btn localhostbutton" :class="{highlight:LabSymbolShow}"></div>
           <span class="xbsj-item-name">{{lang.localhost}}</span>
         </div>

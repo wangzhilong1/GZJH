@@ -1,7 +1,7 @@
 const zh = {
   source: "数据源",
   online: "在线",
-  localhost: "Lab服务",
+  //localhost: "Lab服务",
   cloudhost: "云服务",
   instance: "实例模型",
   edit: "编辑",

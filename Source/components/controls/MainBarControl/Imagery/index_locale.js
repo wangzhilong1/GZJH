@@ -1,7 +1,8 @@
 const zh = {
+  LJZX:"临建族系",
   source: "数据源",
-  online: "在线",
-  localhost: "Lab服务", 
+  online: "临建族系",
+  localhost: "Lab服务",
   cloud: "云服务",
   arcgis: "arcgis",
   visible: "可视化",
@@ -18,7 +19,7 @@ const zh = {
 const en = {
   source: "Services",
   online: "Online",
-  localhost: "Local", 
+  localhost: "Local",
   cloud: "cloud",
   arcgis: "Arcgis",
   visible: "Effect",

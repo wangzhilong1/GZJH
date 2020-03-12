@@ -1,5 +1,5 @@
 <template>
-  <Window
+  <Window style="display: none"
     :footervisible="true"
     @cancel="cancel"
     @ok="ok"

@@ -2,49 +2,49 @@
   <!-- box -->
   <div class="xbsj-template">
    <div class="xbsj-list"
-          ref="container" 
+          ref="container"
       @mousedown="startMove($event)"
       @mousemove="onMoving($event)"
       @mouseup="endMove($event)">
       <div class="xbsj-list-item">
-        <span class="xbsj-list-name">{{lang.source}}</span>
+        <span class="xbsj-list-name" style="display:none">{{lang.source}}</span>
         <div class="xbsj-item-btnbox ml20">
           <div
             class="xbsj-item-btn onlinebutton"
             @click="imageryOnline=!imageryOnline"
             :class="{highlight:imageryOnline}"
           ></div>
-          <span class="xbsj-item-name">{{lang.online}}</span>
+          <span class="xbsj-item-name">{{lang.LJZX}}</span>
         </div>
-        <div class="xbsj-item-btnbox" v-show="labServiceUI">
-          <div
-            class="xbsj-item-btn localhostbutton"
-            @click="imageryLab=!imageryLab"
-            :class="{highlight:imageryLab}"
-          ></div>
-          <span class="xbsj-item-name">{{lang.localhost}}</span>
-        </div>
+<!--        <div class="xbsj-item-btnbox" v-show="labServiceUI" style="display:none">-->
+<!--          <div style="display:none"-->
+<!--            class="xbsj-item-btn localhostbutton"-->
+<!--            @click="imageryLab=!imageryLab"-->
+<!--            :class="{highlight:imageryLab}"-->
+<!--          ></div>-->
+<!--          <span class="xbsj-item-name">{{lang.localhost}}</span>-->
+<!--        </div>-->
 
-        <div class="xbsj-item-btnbox" v-show="cloudServiceUI">
-          <div
+        <div class="xbsj-item-btnbox" v-show="cloudServiceUI" style="display:none">
+          <div style="display:none"
             class="xbsj-item-btn localhostbutton"
             @click="imageryCloud=!imageryCloud"
             :class="{highlight:imageryCloud}"
           ></div>
-          <span class="xbsj-item-name">{{lang.cloud}}</span>
+          <span class="xbsj-item-name" style="display:none">{{lang.cloud}}</span>
         </div>
 
-         <div class="xbsj-item-btnbox">
+         <div class="xbsj-item-btnbox" style="display:none">
           <div
             class="xbsj-item-btn wmsbutton"
             @click="imageryWMTS=!imageryWMTS"
             :class="{highlight:imageryWMTS}"
           ></div>
-          <span class="xbsj-item-name">{{lang.wms}}</span>
+          <span class="xbsj-item-name" style="display:none">{{lang.wms}}</span>
         </div>
 
-        <div class="xbsj-item-btnbox" v-show="false">
-          <div class="xbsj-item-btn wmsbutton"></div>
+        <div class="xbsj-item-btnbox" v-show="false" style="display:none">
+          <div class="xbsj-item-btn wmsbutton" style="display:none"></div>
           <span class="xbsj-item-name">{{lang.wms}}</span>
         </div>
         <div class="xbsj-item-btnbox" v-show="false">
@@ -52,23 +52,23 @@
           <span class="xbsj-item-name">{{lang.arcgis}}</span>
         </div>
       </div>
-      <div class="xbsj-list-item xbsj-list-lastitem">
+      <div class="xbsj-list-item xbsj-list-lastitem" style="display:none">
         <span class="xbsj-list-name">{{title}}</span>
         <div class="xbsj-item-btnbox ml20">
           <div class="btns">
-            <div
+            <div style="display:none"
               class="xbsj-btn leftbutton"
               :class="{active:splitDirection != 'ImagerySplitDirection.RIGHT'}"
               @click="clickLeft"
             ></div>
-            <div
+            <div style="display:none"
               class="xbsj-btn rightbutton"
               :class="{active:splitDirection != 'ImagerySplitDirection.LEFT'}"
               @click="clickRight"
             ></div>
           </div>
 
-          <span class="xbsj-item-name">{{lang.viewport}}</span>
+          <span class="xbsj-item-name" style="display:none">{{lang.viewport}}</span>
         </div>
 
         <div class="xbsj-slide-group">
@@ -167,7 +167,7 @@
 </template>
 
 <script>
-import languagejs from "./index_locale"; 
+import languagejs from "./index_locale";
 export default {
   props:["labServiceUI","cloudServiceUI"],
   data() {
@@ -192,10 +192,10 @@ export default {
     };
   },
   created() {
-    
+
   },
   mounted() {
-  
+
     //绑定
     this.$nextTick(() => {
 
@@ -314,13 +314,13 @@ export default {
   left: 8px;
 }
 .onlinebutton {
-  background: url(../../../../images/online.png) no-repeat;
+  background: url(../../../../images/ljzk.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .onlinebutton.highlight,
 .onlinebutton:hover {
-  background: url(../../../../images/online_on.png) no-repeat;
+  background: url(../../../../images/ljzk2.png) no-repeat;
   background-size: contain;
   cursor: pointer;
 }

@@ -11,14 +11,15 @@
     :top="138"
     :title="lang.localtitle"
     class="xbsj-localImage"
+    style="display: none"
   >
-    <div class="localImageSeaarch">
+    <div class="localImageSeaarch" style="display: none">
       <input v-model="key" @keyup.enter="query" />
       <button @click="query" class="localImageSeaarchButton">{{lang.search}}</button>
       <!-- <label v-show="error!=''" class="error">{{error}}</label> -->
     </div>
 
-    <div v-if="selected!=null" class="localImageDiv">
+    <div v-if="selected!=null" class="localImageDiv" >
       <!-- <label>服务地址:{{serverUrl(selected)}}</label> -->
       <div>
         <label class="localLabel">{{lang.address}}:</label>

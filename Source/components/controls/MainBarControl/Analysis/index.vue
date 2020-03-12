@@ -80,7 +80,7 @@
           ></div>
           <span class="xbsj-item-name">{{lang.point}}</span>
         </div>
-        <div class="xbsj-item-btnbox" @click="measurementType='SPACE_DISTANCE'">
+        <div class="xbsj-item-btnbox" @click="measurementType='SPACE_DISTANCE'" style="display:none">
           <div
             class="xbsj-item-btn distancebutton"
             :class="measurementType === 'SPACE_DISTANCE' ? 'distancebuttonActive' : ''"

@@ -49,7 +49,8 @@
  }
 
  .xbsj-list-lastitem {
-   border: none;
+    border-right: 0.5px;
+     border-right: #474747;
  }
 
  .xbsj-list-name {
@@ -766,7 +767,7 @@
    border: 1px solid #666666;
    background-color: rgba(0, 0, 0, 0.5);
    color: #dddddd;
-   margin-bottom: 10px; 
+   margin-bottom: 10px;
    border-radius: 5px;
    cursor: pointer;
  }

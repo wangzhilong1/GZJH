@@ -1,7 +1,7 @@
 const zh = {
-  roam: "漫游",
-  view: "视图",
-  images: "影像",
+  roam: "项目",
+  view: "临建基础",
+  images: "基础数据",
   model: "瓦片",
   terrain: "地形",
   analysis: "分析",
