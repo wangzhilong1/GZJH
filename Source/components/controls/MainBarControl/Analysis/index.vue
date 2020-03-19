@@ -7,69 +7,69 @@
       @mousemove="onMoving($event)"
       @mouseup="endMove($event)"
     >
-      <div class="xbsj-list-item">
-        <!-- 视域分析 -->
-        <span class="xbsj-list-name">{{lang.visualization}}</span>
+<!--      <div class="xbsj-list-item">-->
+<!--        &lt;!&ndash; 视域分析 &ndash;&gt;-->
+<!--        <span class="xbsj-list-name">{{lang.visualization}}</span>-->
 
-        <!-- 通视分析 -->
-        <!-- <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn visibilitybutton"></div>
-          <span class="xbsj-item-name">{{lang.visibility}}</span>
-        </div>-->
-        <!-- 模型压平 -->
-        <div class="xbsj-item-btnbox" @click="startFlattenning" title="创建压平面">
-          <div class="xbsj-item-btn flattenbutton"></div>
-          <span class="xbsj-item-name">{{lang.flatten}}</span>
-        </div>
-        <!-- 水淹分析 -->
-        <!-- <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn floodingbutton"></div>
-          <span class="xbsj-item-name">{{lang.flooding}}</span>
-        </div>-->
-        <!-- 视频融合 -->
-        <div class="xbsj-item-btnbox" @click="startCameraVideo" title="以当前相机姿态创建新的视频融合">
-          <div class="xbsj-item-btn videofusionbutton"></div>
-          <span class="xbsj-item-name">{{lang.videofusion}}</span>
-        </div>
-        <!-- 剖切 -->
-        <div class="xbsj-item-btnbox" @click="startClipping" title="创建剖切面">
-          <div class="xbsj-item-btn sectioningbutton"></div>
-          <span class="xbsj-item-name">{{lang.sectioning}}</span>
-        </div>
-        <!-- 挖坑 -->
-        <!-- <div class="xbsj-item-btnbox">
-          <div class="xbsj-item-btn potholingbutton"></div>
-          <span class="xbsj-item-name">{{lang.potholing}}</span>
-        </div>-->
-        <!-- 可视域 -->
-        <div class="xbsj-item-btnbox ml20" @click="startViewshed" title="以当前相机姿态创建新的视域分析">
-          <div class="xbsj-item-btn visualbutton"></div>
-          <span class="xbsj-item-name">{{lang.visual}}</span>
-        </div>
-        <!-- 水面 -->
-        <div class="xbsj-item-btnbox" @click="startWater" title="创建水面">
-          <div class="xbsj-item-btn waterbutton"></div>
-          <span class="xbsj-item-name">{{lang.water}}</span>
-        </div>
-        <!-- 模型展开 -->
-        <div
-          class="xbsj-item-btnbox"
-          title="模型展开"
-          @drop="modelexpansion_drop($event)"
-          @dragover="modelexpansion_dragover($event)"
-          @dragleave="modelexpansion_dragleave($event)"
-        >
-          <div class="xbsj-item-btn">
-            <button
-              class="stylebutton"
-              :disabled="!enabled"
-              :class="{highlight:modelexpansion_over}"
-              @click="expansionEditor()"
-            ></button>
-          </div>
-          <span class="xbsj-item-name">{{lang.expansion}}</span>
-        </div>
-      </div>
+<!--        &lt;!&ndash; 通视分析 &ndash;&gt;-->
+<!--        &lt;!&ndash; <div class="xbsj-item-btnbox">-->
+<!--          <div class="xbsj-item-btn visibilitybutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.visibility}}</span>-->
+<!--        </div>&ndash;&gt;-->
+<!--        &lt;!&ndash; 模型压平 &ndash;&gt;-->
+<!--        <div class="xbsj-item-btnbox" @click="startFlattenning" title="创建压平面">-->
+<!--          <div class="xbsj-item-btn flattenbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.flatten}}</span>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 水淹分析 &ndash;&gt;-->
+<!--        &lt;!&ndash; <div class="xbsj-item-btnbox">-->
+<!--          <div class="xbsj-item-btn floodingbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.flooding}}</span>-->
+<!--        </div>&ndash;&gt;-->
+<!--        &lt;!&ndash; 视频融合 &ndash;&gt;-->
+<!--        <div class="xbsj-item-btnbox" @click="startCameraVideo" title="以当前相机姿态创建新的视频融合">-->
+<!--          <div class="xbsj-item-btn videofusionbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.videofusion}}</span>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 剖切 &ndash;&gt;-->
+<!--        <div class="xbsj-item-btnbox" @click="startClipping" title="创建剖切面">-->
+<!--          <div class="xbsj-item-btn sectioningbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.sectioning}}</span>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 挖坑 &ndash;&gt;-->
+<!--        &lt;!&ndash; <div class="xbsj-item-btnbox">-->
+<!--          <div class="xbsj-item-btn potholingbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.potholing}}</span>-->
+<!--        </div>&ndash;&gt;-->
+<!--        &lt;!&ndash; 可视域 &ndash;&gt;-->
+<!--        <div class="xbsj-item-btnbox ml20" @click="startViewshed" title="以当前相机姿态创建新的视域分析">-->
+<!--          <div class="xbsj-item-btn visualbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.visual}}</span>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 水面 &ndash;&gt;-->
+<!--        <div class="xbsj-item-btnbox" @click="startWater" title="创建水面">-->
+<!--          <div class="xbsj-item-btn waterbutton"></div>-->
+<!--          <span class="xbsj-item-name">{{lang.water}}</span>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 模型展开 &ndash;&gt;-->
+<!--        <div-->
+<!--          class="xbsj-item-btnbox"-->
+<!--          title="模型展开"-->
+<!--          @drop="modelexpansion_drop($event)"-->
+<!--          @dragover="modelexpansion_dragover($event)"-->
+<!--          @dragleave="modelexpansion_dragleave($event)"-->
+<!--        >-->
+<!--          <div class="xbsj-item-btn">-->
+<!--            <button-->
+<!--              class="stylebutton"-->
+<!--              :disabled="!enabled"-->
+<!--              :class="{highlight:modelexpansion_over}"-->
+<!--              @click="expansionEditor()"-->
+<!--            ></button>-->
+<!--          </div>-->
+<!--          <span class="xbsj-item-name">{{lang.expansion}}</span>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="xbsj-list-item xbsj-list-lastitem">
         <span class="xbsj-list-name">{{lang.measure}}</span>
 
@@ -264,6 +264,16 @@ export default {
     clearResults() {
       this.$root.$earth.analyzation.measurement.clearResults();
       this.$root.$earth.analyzation.cutFillComputing.clearResults();
+    },
+    pinbtn() {
+      var Pin = new XE.Obj.Pin(this.$root.$earth);
+      // Pin.ctrtype = "PinTool";
+      Pin.name = "图标点";
+      Pin.positionPicking = true;
+      Pin.isCreating = true;
+      Pin.creating = true;
+      // console.log(Pin);
+      this.$root.$earthUI.showPropertyWindow(Pin);
     },
     startMove(event) {
       //如果事件的目标不是本el 返回

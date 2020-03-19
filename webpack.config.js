@@ -157,8 +157,8 @@ module.exports = {
         noInfo: true,
         overlay: true,
         contentBase: path.join(__dirname, "dist"), // 只有加载静态文件时才需要，比如文档
-        port: 9530,
-        host: '0.0.0.0',
+        port: 8095,
+        host: 'localhost',
         hot: true,
         proxy: {
             '/api': {

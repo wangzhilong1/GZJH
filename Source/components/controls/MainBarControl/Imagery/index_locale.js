@@ -1,5 +1,5 @@
 const zh = {
-  LJZX:"临建族系",
+  LJZX:"临建族库",
   source: "数据源",
   online: "临建族系",
   localhost: "Lab服务",
